@@ -18,6 +18,18 @@ if ENV["RABBIT_GTK_VERSION"] == "3"
   require "gtk3"
 else
   require "gtk2"
+  module Gdk
+    module Keyval
+      def self.const_missing(name)
+        name = name.to_s.gsub(/Gdk::Keyval::/, "")
+        if /\AKEY_/ =~ name
+          const_get("GDK_#{name}")
+        else
+          super
+        end
+      end
+    end
+  end
 end
 
 module Gdk
