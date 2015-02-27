@@ -20,6 +20,7 @@ else
   require "gtk2"
   module Gdk
     CURRENT_TIME = Event::CURRENT_TIME
+    ModifierType = Window::ModifierType
 
     class EventType
       def self.const_missing(name)
@@ -48,8 +49,6 @@ else
         end
       end
     end
-
-    ModifierType = Window::ModifierType
   end
 end
 
