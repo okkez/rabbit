@@ -22,7 +22,8 @@ else
     module EventType
       def self.const_missing(name)
         name = name.to_s.gsub(/Gdk::EventType::/, "")
-        Event.const_get(name)
+        value = Event.const_get(name)
+        const_set(name, value)
       end
     end
 
@@ -30,7 +31,8 @@ else
       def self.const_missing(name)
         name = name.to_s.gsub(/Gdk::Keyval::/, "")
         if /\AKEY_/ =~ name
-          const_get("GDK_#{name}")
+          value = const_get("GDK_#{name}")
+          const_set(name, value)
         else
           super
         end
