@@ -53,6 +53,18 @@ module Rabbit
     private
     def setup_progress_color
       if Gtk::MAJOR_VERSION == 3
+        # FIXME
+        style_context = @bar.style_context
+        style_context.save
+        if @foreground
+          # rgb = @foreground.to_gdk_rgb
+          # style_context.set_background(:prelight, *rgb)
+        end
+        if @background
+          # rgb = @background.to_gdk_rgb
+          # style_context.set_background(:normal, *rgb)
+        end
+        style_context.restore
       else
         style = @original_style.copy
         if @foreground
