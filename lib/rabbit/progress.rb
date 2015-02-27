@@ -52,6 +52,8 @@ module Rabbit
 
     private
     def setup_progress_color
+      if Gtk::MAJOR_VERSION == 3
+      else
       style = @original_style.copy
       if @foreground
         rgb = @foreground.to_gdk_rgb
@@ -62,6 +64,7 @@ module Rabbit
         style.set_bg(Gtk::STATE_NORMAL, *rgb)
       end
       @bar.style = style
+      end
     end
   end
 end
