@@ -49,6 +49,16 @@ else
         end
       end
     end
+
+    class Window
+      def width
+        size[0]
+      end
+
+      def height
+        size[1]
+      end
+    end
   end
 
   module Gtk
