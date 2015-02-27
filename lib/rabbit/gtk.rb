@@ -19,6 +19,8 @@ if ENV["RABBIT_GTK_VERSION"] == "3"
 else
   require "gtk2"
   module Gdk
+    CURRENT_TIME = Event::CURRENT_TIME
+
     class EventType
       def self.const_missing(name)
         name = name.to_s.gsub(/Gdk::EventType::/, "")
