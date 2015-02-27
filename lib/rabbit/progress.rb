@@ -54,16 +54,16 @@ module Rabbit
     def setup_progress_color
       if Gtk::MAJOR_VERSION == 3
       else
-      style = @original_style.copy
-      if @foreground
-        rgb = @foreground.to_gdk_rgb
-        style.set_bg(Gtk::STATE_PRELIGHT, *rgb)
-      end
-      if @background
-        rgb = @background.to_gdk_rgb
-        style.set_bg(Gtk::STATE_NORMAL, *rgb)
-      end
-      @bar.style = style
+        style = @original_style.copy
+        if @foreground
+          rgb = @foreground.to_gdk_rgb
+          style.set_bg(Gtk::STATE_PRELIGHT, *rgb)
+        end
+        if @background
+          rgb = @background.to_gdk_rgb
+          style.set_bg(Gtk::STATE_NORMAL, *rgb)
+        end
+        @bar.style = style
       end
     end
   end
