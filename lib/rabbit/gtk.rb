@@ -46,6 +46,8 @@ else
         end
       end
     end
+
+    ModifierType = Window::ModifierType
   end
 end
 
