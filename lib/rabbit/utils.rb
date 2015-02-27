@@ -183,8 +183,8 @@ module Rabbit
     def move_to(base, target)
       window = base.window
       screen = window.screen
-      num = screen.get_monitor(window)
-      monitor = screen.monitor_geometry(num)
+      num = screen.get_monitor_at_window(window)
+      monitor = screen.get_monitor_geometry(num)
       window_x, window_y = window.origin
       window_width, window_height = window.size
       target_width, target_height = target.size_request

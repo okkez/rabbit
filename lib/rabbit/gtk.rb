@@ -50,6 +50,11 @@ else
       end
     end
 
+    class Screen
+      alias_method :get_monitor_at_window, :get_monitor
+      alias_method :get_monitor_geometry, :monitor_geometry
+    end
+
     class Window
       def width
         size[0]
