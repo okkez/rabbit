@@ -50,6 +50,14 @@ else
       end
     end
   end
+
+  module Gtk
+    class Widget
+      def drag_dest_set(flags, targets, actions)
+        Gtk::Drag.dest_set(self, flags, targets, actions)
+      end
+    end
+  end
 end
 
 module Gdk
