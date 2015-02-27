@@ -27,6 +27,14 @@ else
       end
     end
 
+    class EventMask
+      def self.const_missing(name)
+        name = name.to_s.gsub(/Gdk::EventMask::/, "")
+        value = Event.const_get(name)
+        const_set(name, value)
+      end
+    end
+
     module Keyval
       def self.const_missing(name)
         name = name.to_s.gsub(/Gdk::Keyval::/, "")
